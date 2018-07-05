@@ -130,6 +130,13 @@ input("Aperte Enter para continuar...")
 # Isso deveria retornar uma lista com [count_male, count_female] (exemplo: [10,
 # 15] significa 10 Masculinos, 15 Femininos)
 def count_gender(data_list):
+    """
+    Conta ocorrência dos gêneros
+    Argumentos:
+      data_list: Lista multi-feature que deve conter na feature de indice 6 o gênero
+    Retorna:
+      Lista que identifica a frequencia de ocorrencia de cada gênero.
+    """
     male = 0
     female = 0
 
@@ -167,15 +174,7 @@ def most_popular_gender(data_list):
     Retorna:
       Texto (string) que identifica o gênero de maior frequência ou se são de mesma ocorrência.
     """
-    answer = ""
-    male = 0
-    female = 0
-
-    for i in range(len(data_list)): # Conta male e female
-        if data_list[i][6] == 'Male':
-            male+=1
-        elif data_list[i][6] == 'Female':
-            female+=1
+    male, female = count_gender(data_list)
 
     if male > female: # Analisa qual variável é maior e retorna como str(ptbr)
         answer = 'Masculino'
